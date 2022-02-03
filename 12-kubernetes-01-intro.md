@@ -29,6 +29,10 @@
 Инструкция по установке Minikube - [ссылка](https://kubernetes.io/ru/docs/tasks/tools/install-minikube/)
 
 **Важно**: t3.small не входит во free tier, следите за бюджетом аккаунта и удаляйте виртуалку.
+  
+**Ответ**
+У меня есть "копилка" для фоток и всякого. это мой полигон.
+  ![image](https://user-images.githubusercontent.com/30965391/152334089-4eb18ab3-43ed-4ae3-82fd-322e8154570b.png)
 
 ## Задача 2: Запуск Hello World
 После установки Minikube требуется его проверить. Для этого подойдет стандартное приложение hello world. А для доступа к нему потребуется ingress.
