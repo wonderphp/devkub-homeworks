@@ -40,10 +40,21 @@
 - развернуть через Minikube тестовое приложение по [туториалу](https://kubernetes.io/ru/docs/tutorials/hello-minikube/#%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA%D0%BB%D0%B0%D1%81%D1%82%D0%B5%D1%80%D0%B0-minikube)
 - установить аддоны ingress и dashboard
 
+  **Ответ**
+  Для  даш борды пришлось сделать так:
+![image](https://user-images.githubusercontent.com/30965391/152448956-68fc7b93-e827-404e-9d4a-bf43df10db21.png)
+Добавил пользователя в группу докера, остановил dnsmasq -ingress установился. победа
+  ![image](https://user-images.githubusercontent.com/30965391/152449184-bc9fc687-c67b-4568-9410-f2c2789e068b.png)
+  ![image](https://user-images.githubusercontent.com/30965391/152449249-a0baafe1-26f1-4b1f-94f6-fcc7e3209635.png)
+
+
+
 ## Задача 3: Установить kubectl
 
 Подготовить рабочую машину для управления корпоративным кластером. Установить клиентское приложение kubectl.
 - подключиться к minikube 
+  ![image](https://user-images.githubusercontent.com/30965391/152449555-77ea3c5f-bdf2-4b8d-821a-474c59e28464.png)
+
 - проверить работу приложения из задания 2, запустив port-forward до кластера
 
 ## Задача 4 (*): собрать через ansible (необязательное)
