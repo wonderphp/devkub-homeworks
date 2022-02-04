@@ -8,19 +8,32 @@
 Требования:
  * пример из hello world запущен в качестве deployment
  * количество реплик в deployment установлено в 2
- * наличие deployment можно проверить командой kubectl get deployment
- * наличие подов можно проверить командой kubectl get pods
+  ![image](https://user-images.githubusercontent.com/30965391/152504703-7101433f-3283-4cfd-b164-d2f8becdb512.png)
 
+ * наличие deployment можно проверить командой kubectl get deployment
+ ![image](https://user-images.githubusercontent.com/30965391/152504775-4b99e7df-fbf1-4252-ad92-fcbc8e3a0d7a.png)
+
+ * наличие подов можно проверить командой kubectl get pods
+ 
+  на первом скрине
 
 ## Задание 2: Просмотр логов для разработки
 Разработчикам крайне важно получать обратную связь от штатно работающего приложения и, еще важнее, об ошибках в его работе. 
 Требуется создать пользователя и выдать ему доступ на чтение конфигурации и логов подов в app-namespace.
+![image](https://user-images.githubusercontent.com/30965391/152552402-e45d0263-ec3f-4cc0-b47a-19d2a3cd5475.png)
 
 Требования: 
  * создан новый токен доступа для пользователя
- * пользователь прописан в локальный конфиг (~/.kube/config, блок users)
- * пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
+kubectl config set-credentials viewer --token=$TOKEN
+$TOKEN получил
+kubectl get secret viewer-token-ggxcp -o yaml
 
+ * пользователь прописан в локальный конфиг (~/.kube/config, блок users)
+ ![image](https://user-images.githubusercontent.com/30965391/152551992-966b13c5-4b48-4376-a407-026464220769.png)
+
+ * пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
+![image](https://user-images.githubusercontent.com/30965391/152551784-f2c223e9-ae0f-4f3f-963a-2fb51e995b74.png)
++созданы еще разные роли и забинжены. Очистил скрин уже не сниму как делал.
 
 ## Задание 3: Изменение количества реплик 
 Поработав с приложением, вы получили запрос на увеличение количества реплик приложения для нагрузки. Необходимо изменить запущенный deployment, увеличив количество реплик до 5. Посмотрите статус запущенных подов после увеличения реплик. 
@@ -28,6 +41,7 @@
 Требования:
  * в deployment из задания 1 изменено количество реплик на 5
  * проверить что все поды перешли в статус running (kubectl get pods)
+![image](https://user-images.githubusercontent.com/30965391/152552844-82ee15c7-4d07-4a9d-aec4-2b8efaabcc5e.png)
 
 ---
 
