@@ -34,6 +34,315 @@ kubectl get secret viewer-token-ggxcp -o yaml
  * пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
 ![image](https://user-images.githubusercontent.com/30965391/152551784-f2c223e9-ae0f-4f3f-963a-2fb51e995b74.png)
 +созданы еще разные роли и забинжены. Очистил скрин уже не сниму как делал.
+**ДОРАБОТКА**
+![image](https://user-images.githubusercontent.com/30965391/152658033-9cb2bde8-4e0e-4451-8ef9-b37c4aa74da7.png)
+Биндил так:
+![image](https://user-images.githubusercontent.com/30965391/152658158-2ed5e349-73af-4d36-ae21-990fd0bfc1da.png)
+Часть команд сохарнилась, часть видимо с пробелом в начале была
+![image](https://user-images.githubusercontent.com/30965391/152658219-8354341b-fb82-4838-85d9-58fc31805ae8.png)
+![image](https://user-images.githubusercontent.com/30965391/152658265-652417db-4d12-4fe4-bedb-a75be239a5e4.png)
+![image](https://user-images.githubusercontent.com/30965391/152658275-2c67ed8c-dab0-485d-9da0-f92deea18fe5.png)
+
+
+
+```
+pixel@kopilka:~$ kubectl get ClusterRole  system:node -n default -o json
+{
+    "apiVersion": "rbac.authorization.k8s.io/v1",
+    "kind": "ClusterRole",
+    "metadata": {
+        "annotations": {
+            "rbac.authorization.kubernetes.io/autoupdate": "true"
+        },
+        "creationTimestamp": "2022-02-03T23:09:40Z",
+        "labels": {
+            "kubernetes.io/bootstrapping": "rbac-defaults"
+        },
+        "name": "system:node",
+        "resourceVersion": "99",
+        "uid": "ad98c3e3-210f-4693-81e9-3fd687c11cea"
+    },
+    "rules": [
+        {
+            "apiGroups": [
+                "authentication.k8s.io"
+            ],
+            "resources": [
+                "tokenreviews"
+            ],
+            "verbs": [
+                "create"
+            ]
+        },
+        {
+            "apiGroups": [
+                "authorization.k8s.io"
+            ],
+            "resources": [
+                "localsubjectaccessreviews",
+                "subjectaccessreviews"
+            ],
+            "verbs": [
+                "create"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "services"
+            ],
+            "verbs": [
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "nodes"
+            ],
+            "verbs": [
+                "create",
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "nodes/status"
+            ],
+            "verbs": [
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "nodes"
+            ],
+            "verbs": [
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "events"
+            ],
+            "verbs": [
+                "create",
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "pods"
+            ],
+            "verbs": [
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "pods"
+            ],
+            "verbs": [
+                "create",
+                "delete"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "pods/status"
+            ],
+            "verbs": [
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "pods/eviction"
+            ],
+            "verbs": [
+                "create"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "configmaps",
+                "secrets"
+            ],
+            "verbs": [
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "persistentvolumeclaims",
+                "persistentvolumes"
+            ],
+            "verbs": [
+                "get"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "endpoints"
+            ],
+            "verbs": [
+                "get"
+            ]
+        },
+        {
+            "apiGroups": [
+                "certificates.k8s.io"
+            ],
+            "resources": [
+                "certificatesigningrequests"
+            ],
+            "verbs": [
+                "create",
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                "coordination.k8s.io"
+            ],
+            "resources": [
+                "leases"
+            ],
+            "verbs": [
+                "create",
+                "delete",
+                "get",
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                "storage.k8s.io"
+            ],
+            "resources": [
+                "volumeattachments"
+            ],
+            "verbs": [
+                "get"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "serviceaccounts/token"
+            ],
+            "verbs": [
+                "create"
+            ]
+        },
+        {
+            "apiGroups": [
+                ""
+            ],
+            "resources": [
+                "persistentvolumeclaims/status"
+            ],
+            "verbs": [
+                "get",
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                "storage.k8s.io"
+            ],
+            "resources": [
+                "csidrivers"
+            ],
+            "verbs": [
+                "get",
+                "list",
+                "watch"
+            ]
+        },
+        {
+            "apiGroups": [
+                "storage.k8s.io"
+            ],
+            "resources": [
+                "csinodes"
+            ],
+            "verbs": [
+                "create",
+                "delete",
+                "get",
+                "patch",
+                "update"
+            ]
+        },
+        {
+            "apiGroups": [
+                "node.k8s.io"
+            ],
+            "resources": [
+                "runtimeclasses"
+            ],
+            "verbs": [
+                "get",
+                "list",
+                "watch"
+            ]
+        }
+    ]
+}
+```
 
 ## Задание 3: Изменение количества реплик 
 Поработав с приложением, вы получили запрос на увеличение количества реплик приложения для нагрузки. Необходимо изменить запущенный deployment, увеличив количество реплик до 5. Посмотрите статус запущенных подов после увеличения реплик. 
