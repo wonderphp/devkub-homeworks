@@ -34,7 +34,12 @@ kubectl get secret viewer-token-ggxcp -o yaml
  * пользователь может просматривать логи подов и их конфигурацию (kubectl logs pod <pod_id>, kubectl describe pod <pod_id>)
 ![image](https://user-images.githubusercontent.com/30965391/152551784-f2c223e9-ae0f-4f3f-963a-2fb51e995b74.png)
 +созданы еще разные роли и забинжены. Очистил скрин уже не сниму как делал.
-**ДОРАБОТКА**
+
+**ДОРАБОТКА**  
+ еще раз прочитал ДЗ - не показал что можно логи читать пользователю viewer
+ ![image](https://user-images.githubusercontent.com/30965391/152658576-10c10390-a79f-4b1a-af5b-14a04f391735.png)
+Рад что работает.
+
 ![image](https://user-images.githubusercontent.com/30965391/152658033-9cb2bde8-4e0e-4451-8ef9-b37c4aa74da7.png)
 Биндил так:
 ![image](https://user-images.githubusercontent.com/30965391/152658158-2ed5e349-73af-4d36-ae21-990fd0bfc1da.png)
