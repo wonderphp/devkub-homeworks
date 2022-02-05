@@ -38,6 +38,8 @@ kubectl get secret viewer-token-ggxcp -o yaml
 **ДОРАБОТКА**  
  еще раз прочитал ДЗ - не показал что можно логи читать пользователю viewer
  ![image](https://user-images.githubusercontent.com/30965391/152658576-10c10390-a79f-4b1a-af5b-14a04f391735.png)
+ ![image](https://user-images.githubusercontent.com/30965391/152658739-3c990b31-1cf6-46fe-bdfa-0e268ac893f1.png)
+
 Рад что работает.
 
 ![image](https://user-images.githubusercontent.com/30965391/152658033-9cb2bde8-4e0e-4451-8ef9-b37c4aa74da7.png)
