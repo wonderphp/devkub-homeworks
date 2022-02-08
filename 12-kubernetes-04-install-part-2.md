@@ -14,7 +14,6 @@ https://kopilka.ga/1.mp4
 
 * в качестве CRI — containerd;
  ![image](https://user-images.githubusercontent.com/30965391/153075403-db2e01ff-ccdd-4e51-bf77-d4a014809c1c.png)
- ![image](https://user-images.githubusercontent.com/30965391/153076835-f33a64ea-913d-4aca-843a-82bf139f064b.png)
 
 * запуск etcd производить на мастере.
 
