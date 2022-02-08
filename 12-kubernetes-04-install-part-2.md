@@ -4,8 +4,24 @@
 ## Задание 1: Подготовить инвентарь kubespray
 Новые тестовые кластеры требуют типичных простых настроек. Нужно подготовить инвентарь и проверить его работу. Требования к инвентарю:
 * подготовка работы кластера из 5 нод: 1 мастер и 4 рабочие ноды;
+Ход разворачивания:  
+https://kopilka.ga/1.mp4
+ ![image](https://user-images.githubusercontent.com/30965391/153078244-a7ad55fd-f80d-455c-a1fa-14596686e896.png)
+
+ ![image](https://user-images.githubusercontent.com/30965391/153075287-39050ff8-d4f4-4ce6-b42f-c1e0d224d697.png)
+![image](https://user-images.githubusercontent.com/30965391/153078016-a78c3845-70c9-44b9-9d30-6f0d4b6a30a7.png)
+
+
 * в качестве CRI — containerd;
+ ![image](https://user-images.githubusercontent.com/30965391/153075403-db2e01ff-ccdd-4e51-bf77-d4a014809c1c.png)
+ ![image](https://user-images.githubusercontent.com/30965391/153076835-f33a64ea-913d-4aca-843a-82bf139f064b.png)
+
 * запуск etcd производить на мастере.
+
+![image](https://user-images.githubusercontent.com/30965391/153077829-d2d54952-1200-4587-88f2-d10f19e38e8a.png)
+
+Сейчас уже поздно. Хочу попробовать запустить некий веб сервис в 4 репликах и посмотреть как будет работать балансировка.
+
 
 ## Задание 2 (*): подготовить и проверить инвентарь для кластера в AWS
 Часть новых проектов хотят запускать на мощностях AWS. Требования похожи:
