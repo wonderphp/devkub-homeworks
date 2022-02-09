@@ -72,7 +72,7 @@ primary+standby *3 = 6шт, 6*4=24ГБ на круг, на кластер бд 8
 5 БД Нода2 стендбай **= 16Гб** 0.5Тб диск, 32 ядра  
 6 Пусть отдельно для фронт/бэка/кэш: control-plane 2gb 2cpu  50gb диск  
 7 Пусть отдельно для БД: control-plane 2gb 2cpu 50gb диск  
-8 Еще одна  control-plane для etcd  2gb 2cpu 50gb диск  
+8 Еще одна  control-plane для устойчивости etcd  2gb 2cpu 50gb диск  
 
 итого надо 74GB 3250gb диски и 100CPU
 
