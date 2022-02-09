@@ -20,6 +20,8 @@ https://kopilka.ga/1.mp4
 ![image](https://user-images.githubusercontent.com/30965391/153077829-d2d54952-1200-4587-88f2-d10f19e38e8a.png)
 ![image](https://user-images.githubusercontent.com/30965391/153193219-8a098263-40b1-4eb9-9acd-95e98d3b390c.png)
 
+Не понял как проверить etcd. Процесс есть, но я к нему подключится не смог:
+![image](https://user-images.githubusercontent.com/30965391/153257975-d3c8d072-563a-4344-aa81-8b6a7a56df74.png)
 
 Сейчас уже поздно. Хочу попробовать запустить некий веб сервис в 4 репликах и посмотреть как будет работать балансировка.
 
