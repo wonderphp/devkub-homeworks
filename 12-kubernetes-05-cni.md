@@ -18,6 +18,7 @@
 Требования: 
 * установить утилиту calicoctl;
 * получить 3 вышеописанных типа в консоли.
+![image](https://user-images.githubusercontent.com/30965391/153747388-e7ee205a-ac75-4549-be4e-910f5f572d99.png)
 
 ---
 
