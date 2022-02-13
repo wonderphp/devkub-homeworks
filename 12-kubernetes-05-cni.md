@@ -5,7 +5,7 @@
 * установка производится через ansible/kubespray;
 ![image](https://user-images.githubusercontent.com/30965391/153729404-e38123e6-ed56-46e3-81bd-77e390dfcc8f.png)
 
-* после применения следует настроить политику доступа к hello world извне.
+* после применения следует настроить политику доступа к hello world извне(В доках калико и яндекса один и тот же экзампл).
 ![image](https://user-images.githubusercontent.com/30965391/153730655-6ae4e31d-51c3-4cb6-8748-d8d50c51764b.png)
 ![image](https://user-images.githubusercontent.com/30965391/153730731-231662b2-2463-461f-908f-ce506ebc4a06.png)
 ![image](https://user-images.githubusercontent.com/30965391/153730758-d119d468-a4ba-40cc-ac97-b2c75631dfc2.png)
