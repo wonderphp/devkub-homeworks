@@ -46,7 +46,9 @@ spec:
 
 * база данных — через statefulset.
 ![image](https://user-images.githubusercontent.com/30965391/153850127-928caf02-3b84-4c97-9f27-2a53cab505aa.png)  
-![image](https://user-images.githubusercontent.com/30965391/153850348-abffec84-5da7-4482-9782-d6d0868311cf.png)
+![image](https://user-images.githubusercontent.com/30965391/153850348-abffec84-5da7-4482-9782-d6d0868311cf.png)  
+![image](https://user-images.githubusercontent.com/30965391/153851672-8543e730-8817-4be2-833b-287b6e282b3e.png)
+
 
 ## Задание 2: подготовить конфиг для production окружения
 Следующим шагом будет запуск приложения в production окружении. Требования сложнее:
