@@ -4,6 +4,7 @@
 * установить helm: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 * добавить репозиторий чартов: helm repo add stable https://charts.helm.sh/stable && helm repo update
 * установить nfs-server через helm: helm install nfs-server stable/nfs-server-provisioner
+![image](https://user-images.githubusercontent.com/30965391/154330482-1aa174e8-670e-47b1-b638-47d12f94039b.png)
 
 В конце установки будет выдан пример создания PVC для этого сервера.
 
