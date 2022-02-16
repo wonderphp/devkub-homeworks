@@ -9,14 +9,60 @@
 
 ## Задание 1: подключить для тестового конфига общую папку
 В stage окружении часто возникает необходимость отдавать статику бекенда сразу фронтом. Проще всего сделать это через общую папку. Требования:
-* в поде подключена общая папка между контейнерами (например, /static);
-* после записи чего-либо в контейнере с беком файлы можно получить из контейнера с фронтом.
+* в поде подключена общая папка между контейнерами (например, /static);  
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-back
+  namespace: stage
+
+spec:
+ replicas: 1
+ selector:
+     matchLabels:
+       app: front-web
+ template:
+  metadata:
+      labels:
+        app: front-web
+  spec:
+    containers:
+    - name: front
+      image: "us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0"
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+              - mountPath: /f-b-share
+                name: share-disk
+                readOnly: true
+    - name: back
+      image: "us-docker.pkg.dev/google-samples/containers/gke/hello-app:2.0"
+      imagePullPolicy: IfNotPresent
+      volumeMounts:
+              - mountPath: /f-b-share
+                name: share-disk
+      env:
+      - name: "PORT"
+        value: "81"
+
+    volumes:
+        - name: share-disk
+          emptyDir: { }
+```
+* после записи чего-либо в контейнере с беком файлы можно получить из контейнера с фронтом.  
+![image](https://user-images.githubusercontent.com/30965391/154251548-3c95db4b-3586-4f16-bda2-bdda42607084.png)
+
 
 ## Задание 2: подключить общую папку для прода
 Поработав на stage, доработки нужно отправить на прод. В продуктиве у нас контейнеры крутятся в разных подах, поэтому потребуется PV и связь через PVC. Сам PV должен быть связан с NFS сервером. Требования:
-* все бекенды подключаются к одному PV в режиме ReadWriteMany;
+* все бекенды подключаются к одному PV в режиме ReadWriteMany;  
+У меня нет unix nfs шары, у меня самба. Поднимать не хочу.
+Представим что путь на каждой ноде /mnt/data_prod-fb уже примонтирован на уровне нод к виндовой шаре или nfs
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
-* файлы, созданные бекендом, должны быть доступны фронту.
+![image](https://user-images.githubusercontent.com/30965391/154266848-bbbeb9dc-0522-4703-a497-4d4ff66e9274.png)
+
+* файлы, созданные бекендом, должны быть доступны фронту.  
+![image](https://user-images.githubusercontent.com/30965391/154266786-cc773bae-d466-408c-9162-ec361230485b.png)
 
 ---
 
