@@ -59,10 +59,102 @@ spec:
 * все бекенды подключаются к одному PV в режиме ReadWriteMany;  
 
 * фронтенды тоже подключаются к этому же PV с таким же режимом;
+![image](https://user-images.githubusercontent.com/30965391/154430225-0758f45a-dc79-47fb-9ca0-073056895a5c.png)
 
 
 * файлы, созданные бекендом, должны быть доступны фронту.  
+![image](https://user-images.githubusercontent.com/30965391/154430380-9b826bd4-aee6-4554-85b4-6a9678efc66a.png)
 
+---
+Манифесты:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: production
+  labels:
+    app: frontend
+spec:
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+
+    spec:
+      containers:
+      - name: front
+        image: kopilka.ga:4443/my-ubuntu
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-c"]
+        args: ["while true; do sleep 30; done;"]
+        volumeMounts:
+         - mountPath: /f-b-share
+           name: vol
+
+        env:
+        - name: "PORT"
+          value: "80"
+      volumes:
+        - name: vol
+          persistentVolumeClaim:
+            claimName: nfs-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: production
+  labels:
+    app: backend
+spec:
+
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+      - name: back
+        image: kopilka.ga:4443/my-ubuntu
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/bash", "-c"]
+        args: ["while true; do sleep 30; done;"]
+        volumeMounts:
+         - mountPath: /f-b-share
+           name: vol
+
+        env:
+        - name: "PORT"
+          value: "80"
+      volumes:
+        - name: vol
+          persistentVolumeClaim:
+            claimName: nfs-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+      name: nfs-claim
+      namespace: production
+spec:
+  storageClassName: "nfs"
+  accessModes:
+        - ReadWriteMany:
+  resources:
+      requests:
+        storage: 100Mi
+```
 
 ---
 
